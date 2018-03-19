@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "SEO Dashboard";
+}
+
+<form method="post" action="/Home/Parser">
+
+    <div class="row">
+        <div class="col-md-3">
+            <h2>Enter Token</h2>
+            <p><input class="btn btn-default" type="text" placeholder="keyword" name="keyword" id="keyword" value="" required /></p>
+        </div>
+        <div class="col-md-5">
+            <h2>Enter Site URL</h2>
+            <p><input class="btn btn-default" type="url" placeholder="http://www.example.com" name="siteURL" id="siteURL" value="" required /></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Results</h2>
+            <p class="btn btn-default">@ViewBag.Results</p>
+        </div>
+    </div>
+
+
+    @if(!string.IsNullOrEmpty(@ViewBag.Message))
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Server Message</h2>
+                <p class="btn btn-default">@ViewBag.Message</p>
+            </div>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-md-12">
+            <input class="btn btn-default" type="submit" value="Search" />
+        </div>
+    </div>
+</form>
